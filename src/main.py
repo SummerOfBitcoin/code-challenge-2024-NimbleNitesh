@@ -1,6 +1,6 @@
 import os
 import json
-from test import Transaction
+from transaction import Transaction
 
 
 directory = '../mempool'
@@ -12,8 +12,8 @@ for filename in os.listdir(directory):
             data = json.load(f)
             tx = Transaction(json.dumps(data))
             if tx.validate():
-                ans+=1
-                # print(f'{filename} is valid')
+                print(f'{filename} is valid')
+                ans += 1
             # else:
             #     print(f'{filename} is invalid')
             # break

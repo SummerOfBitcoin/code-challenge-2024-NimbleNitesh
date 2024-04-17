@@ -143,3 +143,14 @@ def OP_CHECKSIG(signature, pubkey, message):
         return False
 
 
+def OP_CHECKMULTISIG(n, signatures, public_keys, message):
+    for public_key in public_keys:
+        for signature in signatures:
+            if OP_CHECKSIG(signature, public_key, message):
+                n -= 1
+                signatures.remove(signature)
+                public_keys.remove(public_key)
+    
+    if n > 0:
+        return False
+    return True
