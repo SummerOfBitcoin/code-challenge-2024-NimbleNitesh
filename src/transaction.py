@@ -7,12 +7,23 @@ class Transaction:
         self.locktime = data_dict.get("locktime")
         self.vin = data_dict.get("vin")
         self.vout = data_dict.get("vout")
+        self.is_coinbase = False
+
+    def print_transaction(self):
+        print(f"Version: {self.version}")
+        print(f"Locktime: {self.locktime}")
+        print("Vin:")
+        for input in self.vin:
+            print(input)
+        print("Vout:")
+        for output in self.vout:
+            print(output)
 
     def validate(self):
         # checking the pubscript type
         cnt = 0
         for input in self.vin:
-            if input['prevout']['scriptpubkey_type'] != 'p2pkh' and input['prevout']['scriptpubkey_type'] != 'p2sh':
+            if input['prevout']['scriptpubkey_type'] != 'p2pkh':
                 cnt += 1
         
         if cnt > 0:
@@ -56,7 +67,7 @@ class Transaction:
 
                 if redeem_script_asm[-1] != 'OP_CHECKMULTISIG':
                     # No further execution needed as it is not a multisig script
-                    return True
+                    return False
                 
                 # OP_PUSHNUM_2 <public_key1> <public_key2> OP_PUSHNUM_2 OP_CHECKMULTISIG
 

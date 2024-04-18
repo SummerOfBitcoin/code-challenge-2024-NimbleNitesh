@@ -1,10 +1,11 @@
 import os
 import json
 from transaction import Transaction
+from construct_block import construct_block
 
 
 directory = '../mempool'
-ans = 0
+valid_transactions = []
 
 for filename in os.listdir(directory):
     if filename.endswith(".json"):
@@ -12,9 +13,7 @@ for filename in os.listdir(directory):
             data = json.load(f)
             tx = Transaction(json.dumps(data))
             if tx.validate():
-                print(f'{filename} is valid')
-                ans += 1
-            # else:
-            #     print(f'{filename} is invalid')
-            # break
-print(ans)
+                valid_transactions.append(tx)
+                # print(f'{filename} is valid')
+
+construct_block(valid_transactions, block_reward=6, transaction_fee=1)
