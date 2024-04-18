@@ -87,7 +87,7 @@ def construct_block(transactions, block_reward=6, transaction_fee=1):
     txids = calc_txids_from_transactions(mined_block['transactions'])
 
     # write to output file block header, coinbase transaction and txids
-    with open('output.txt', 'w') as f:
+    with open('../output.txt', 'w') as f:
         # write on a new line
         f.write(block_header + '\n')
         f.write(coinbase_tx + '\n')
