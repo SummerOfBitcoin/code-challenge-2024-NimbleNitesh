@@ -1,47 +1,126 @@
 from utils import *
 
 data = {
-  "version": 1,
+  "version": 2,
   "locktime": 0,
   "vin": [
     {
-      "txid": "c0bfed04919d5f9591eab67e723d37bf78b06279bcc01efb971a9cd99460f9e2",
-      "vout": 1,
+      "txid": "4c5946366b7ddb91d806389e772e42322b5f5f890319d0424e18c44bd21e8cb1",
+      "vout": 15,
       "prevout": {
-        "scriptpubkey": "76a9143f41884dda2604ddb09fe015da88d6345b91369b88ac",
-        "scriptpubkey_asm": "OP_DUP OP_HASH160 OP_PUSHBYTES_20 3f41884dda2604ddb09fe015da88d6345b91369b OP_EQUALVERIFY OP_CHECKSIG",
+        "scriptpubkey": "76a914adfb8786f19039b78a78a999e04d68348d0571be88ac",
+        "scriptpubkey_asm": "OP_DUP OP_HASH160 OP_PUSHBYTES_20 adfb8786f19039b78a78a999e04d68348d0571be OP_EQUALVERIFY OP_CHECKSIG",
         "scriptpubkey_type": "p2pkh",
-        "scriptpubkey_address": "16mU5MpSAXMSF7gnmYxEzBY5vWyQeQaS43",
-        "value": 72045507415
+        "scriptpubkey_address": "1GrwDkr33gT6LuumniYjKEGjTLhsL5kmqC",
+        "value": 10060216404
       },
-      "scriptsig": "483045022100bfa227baae7f67e9077b8f35d57d378d8f98e30d593f98d1ab5b152ba3fa41b00220200d07f3279b0c4b9147bb5ff91a3b70b97ffdbbd58ae29b907c3ab58e87e55801210278f837d426608340ed98f6502f5b93569391b2fe6a6f0a8e1bafe7612db6b47d",
-      "scriptsig_asm": "OP_PUSHBYTES_72 3045022100bfa227baae7f67e9077b8f35d57d378d8f98e30d593f98d1ab5b152ba3fa41b00220200d07f3279b0c4b9147bb5ff91a3b70b97ffdbbd58ae29b907c3ab58e87e55801 OP_PUSHBYTES_33 0278f837d426608340ed98f6502f5b93569391b2fe6a6f0a8e1bafe7612db6b47d",
+      "scriptsig": "47304402200f3621fdd5f1349a677320e751bde19826836be99ae040029a0d83d070a4b1c9022024a38f71b9a20ab55d19a30f47315f134524a20e471a16029d8997f1a4a8304201210201973a41bb610e199a1fbb208398fbacc732c3658d132dbf9f3a394bedc9a7b5",
+      "scriptsig_asm": "OP_PUSHBYTES_71 304402200f3621fdd5f1349a677320e751bde19826836be99ae040029a0d83d070a4b1c9022024a38f71b9a20ab55d19a30f47315f134524a20e471a16029d8997f1a4a8304201 OP_PUSHBYTES_33 0201973a41bb610e199a1fbb208398fbacc732c3658d132dbf9f3a394bedc9a7b5",
       "is_coinbase": False,
       "sequence": 4294967295
     }
   ],
   "vout": [
     {
-      "scriptpubkey": "76a914394c3c7981e757c245362187703b4e812c6652fc88ac",
-      "scriptpubkey_asm": "OP_DUP OP_HASH160 OP_PUSHBYTES_20 394c3c7981e757c245362187703b4e812c6652fc OP_EQUALVERIFY OP_CHECKSIG",
-      "scriptpubkey_type": "p2pkh",
-      "scriptpubkey_address": "16DxqvPCMrEyBvuMDxkc9Lgk4jYmCRbqaE",
-      "value": 399000000
+      "scriptpubkey": "a9147534725ac9311c0dc3c2fdec382a4f36340e743f87",
+      "scriptpubkey_asm": "OP_HASH160 OP_PUSHBYTES_20 7534725ac9311c0dc3c2fdec382a4f36340e743f OP_EQUAL",
+      "scriptpubkey_type": "p2sh",
+      "scriptpubkey_address": "3CNjp3kwBdRdhMYn844xHUZHwH8DCAAY9s",
+      "value": 8896910
     },
     {
-      "scriptpubkey": "76a9143f41884dda2604ddb09fe015da88d6345b91369b88ac",
-      "scriptpubkey_asm": "OP_DUP OP_HASH160 OP_PUSHBYTES_20 3f41884dda2604ddb09fe015da88d6345b91369b OP_EQUALVERIFY OP_CHECKSIG",
+      "scriptpubkey": "a91443e1f348759fb524b1d9a7df3b594b31351e7df987",
+      "scriptpubkey_asm": "OP_HASH160 OP_PUSHBYTES_20 43e1f348759fb524b1d9a7df3b594b31351e7df9 OP_EQUAL",
+      "scriptpubkey_type": "p2sh",
+      "scriptpubkey_address": "37swshZauGHGTRdiHRQUcNh76sDgChH7Kc",
+      "value": 223000000
+    },
+    {
+      "scriptpubkey": "00149636e0377e16fda31da473d2e66ca1b6ace21468",
+      "scriptpubkey_asm": "OP_0 OP_PUSHBYTES_20 9636e0377e16fda31da473d2e66ca1b6ace21468",
+      "scriptpubkey_type": "v0_p2wpkh",
+      "scriptpubkey_address": "bc1qjcmwqdm7zm76x8dyw0fwvm9pk6kwy9rgtvncm3",
+      "value": 280195
+    },
+    {
+      "scriptpubkey": "76a914d8a8035e797df5ba84bbabe2d2fb33fb58e0057488ac",
+      "scriptpubkey_asm": "OP_DUP OP_HASH160 OP_PUSHBYTES_20 d8a8035e797df5ba84bbabe2d2fb33fb58e00574 OP_EQUALVERIFY OP_CHECKSIG",
       "scriptpubkey_type": "p2pkh",
-      "scriptpubkey_address": "16mU5MpSAXMSF7gnmYxEzBY5vWyQeQaS43",
-      "value": 71646495574
+      "scriptpubkey_address": "1LkaECGybyyKsbuYWNZh4UwTQzEC1fSJ54",
+      "value": 470000
+    },
+    {
+      "scriptpubkey": "a914457f3ef86e8d3e28791ff002362327bfd46cf22e87",
+      "scriptpubkey_asm": "OP_HASH160 OP_PUSHBYTES_20 457f3ef86e8d3e28791ff002362327bfd46cf22e OP_EQUAL",
+      "scriptpubkey_type": "p2sh",
+      "scriptpubkey_address": "382Uyz7sssR9JAPEABQVavtPNf6MnMuvUM",
+      "value": 113939
+    },
+    {
+      "scriptpubkey": "a9143ef3bd0f343f1831f7203cc22bdea11208cb901a87",
+      "scriptpubkey_asm": "OP_HASH160 OP_PUSHBYTES_20 3ef3bd0f343f1831f7203cc22bdea11208cb901a OP_EQUAL",
+      "scriptpubkey_type": "p2sh",
+      "scriptpubkey_address": "37Rsogk5KZLxmu1yMQ2TFssvF6LtYzaPa7",
+      "value": 8431131
+    },
+    {
+      "scriptpubkey": "001412490140f1f0f46ada5e40bbb762812963859213",
+      "scriptpubkey_asm": "OP_0 OP_PUSHBYTES_20 12490140f1f0f46ada5e40bbb762812963859213",
+      "scriptpubkey_type": "v0_p2wpkh",
+      "scriptpubkey_address": "bc1qzfyszs837r6x4kj7gzamwc5p993ctysn89j525",
+      "value": 585837
+    },
+    {
+      "scriptpubkey": "a9146d043c40a30a5ab360f281ddbb12424cc9df9b2687",
+      "scriptpubkey_asm": "OP_HASH160 OP_PUSHBYTES_20 6d043c40a30a5ab360f281ddbb12424cc9df9b26 OP_EQUAL",
+      "scriptpubkey_type": "p2sh",
+      "scriptpubkey_address": "3BdSejNSzADoqxoFCGcNbhMpJWaV5iFgQP",
+      "value": 82164
+    },
+    {
+      "scriptpubkey": "a914404e38cff36a2b5c2b4f68cafbd2e6a5a79448e287",
+      "scriptpubkey_asm": "OP_HASH160 OP_PUSHBYTES_20 404e38cff36a2b5c2b4f68cafbd2e6a5a79448e2 OP_EQUAL",
+      "scriptpubkey_type": "p2sh",
+      "scriptpubkey_address": "37Z2smvgyH8vgdtWPK4cfMUERBM2PHiX3L",
+      "value": 810022
+    },
+    {
+      "scriptpubkey": "0014b4abb6a180d4a0981603cb0c2afec72faf1251ac",
+      "scriptpubkey_asm": "OP_0 OP_PUSHBYTES_20 b4abb6a180d4a0981603cb0c2afec72faf1251ac",
+      "scriptpubkey_type": "v0_p2wpkh",
+      "scriptpubkey_address": "bc1qkj4mdgvq6jsfs9srevxz4lk897h3y5dv5zsmz0",
+      "value": 108436
+    },
+    {
+      "scriptpubkey": "00140e50bbc18e518d18ac48bae1c240f7d2b84a2f5a",
+      "scriptpubkey_asm": "OP_0 OP_PUSHBYTES_20 0e50bbc18e518d18ac48bae1c240f7d2b84a2f5a",
+      "scriptpubkey_type": "v0_p2wpkh",
+      "scriptpubkey_address": "bc1qpegthsvw2xx33tzghtsuys8h62uy5t665yvj45",
+      "value": 170705
+    },
+    {
+      "scriptpubkey": "00149531894eb39add57de24ff5c4b0b71e50c3d0113",
+      "scriptpubkey_asm": "OP_0 OP_PUSHBYTES_20 9531894eb39add57de24ff5c4b0b71e50c3d0113",
+      "scriptpubkey_type": "v0_p2wpkh",
+      "scriptpubkey_address": "bc1qj5ccjn4nntw40h3ylawykzm3u5xr6qgnn06my8",
+      "value": 374000
+    },
+    {
+      "scriptpubkey": "a9144650a093f13d50882164d6bf78f20059bfa5699187",
+      "scriptpubkey_asm": "OP_HASH160 OP_PUSHBYTES_20 4650a093f13d50882164d6bf78f20059bfa56991 OP_EQUAL",
+      "scriptpubkey_type": "p2sh",
+      "scriptpubkey_address": "386op3xykFZo4cw3DAT7Y1RUfvaUZ6AuVR",
+      "value": 1384000
+    },
+    {
+      "scriptpubkey": "76a914adfb8786f19039b78a78a999e04d68348d0571be88ac",
+      "scriptpubkey_asm": "OP_DUP OP_HASH160 OP_PUSHBYTES_20 adfb8786f19039b78a78a999e04d68348d0571be OP_EQUALVERIFY OP_CHECKSIG",
+      "scriptpubkey_type": "p2pkh",
+      "scriptpubkey_address": "1GrwDkr33gT6LuumniYjKEGjTLhsL5kmqC",
+      "value": 9815487885
     }
   ]
 }
-
-'''
-You will need to calculate z which is the transaction hash. To calculate this value, you will have to take the raw transaction's hexadecimal and replace all the inputs ScriptSigs with the redeem script + SIGHASH_ALL ("01000000" in hexadecimal). After you do this, you apply a double sha256 (also called Hash256), and that's it. You have your z. With this value you can check an individual signature and evaluate it against all the public keys from the redeem script but one by one. A signature is a pair of values (r,s). The formula you will have to evaluate is: 
-
-'''
 
 class Transaction:
     def __init__(self, json_data) -> None:
@@ -50,6 +129,17 @@ class Transaction:
         self.locktime = data_dict.get("locktime")
         self.vin = data_dict.get("vin")
         self.vout = data_dict.get("vout")
+        self.is_coinbase = False
+
+    def print_transaction(self):
+        print(f"Version: {self.version}")
+        print(f"Locktime: {self.locktime}")
+        print("Vin:")
+        for input in self.vin:
+            print(input)
+        print("Vout:")
+        for output in self.vout:
+            print(output)
 
     def validate(self):
         # checking the pubscript type
@@ -60,21 +150,6 @@ class Transaction:
         
         if cnt > 0:
             return False
-        
-        # for idx, input in enumerate(self.vin):
-        #     if input['prevout']['scriptpubkey_type'] == 'p2sh':
-        #         trimmed_tx = get_message(self.version, self.locktime, self.vin, self.vout, idx)
-        #         # print(trimmed_tx)
-        #         message = hashlib.sha256(bytes.fromhex(trimmed_tx)).digest()
-        #         # print(message.hex())
-
-        # public_keys = ['029640a253abbf6252e6d195882262da255d6dd17e66cd8aca2610083f6d4d1781', '03a553e30733d7a8df6d390d59cc136e2c9d9cf4e808f3b6ab009beae68dd60822', '03211aec906e232ad96f2d52e849cf2798f4cf2d3d3463f608a7638054542defd6']
-        # signatures = ['3044022061f5cb2c6a6638e40c7235b888224c6352ea1fe60bd5af6e52b2d77453279ebf0220175360ad1aa5d6f612e19eaa75e155e37a8de938f84985a1bf1220148e20a18301', '3044022065b884e14705c85b462b41fdfe295f4f0e53baf780840b30c0b90f71833dd64d02206ac04c63828ba80e274c4ff96a03f39f450b4bedcb70b415047ea1ee7c71257001']
-
-        # for public_key in public_keys:
-        #   for signature in signatures:
-        #       if OP_CHECKSIG(signature, public_key, message):
-        #           print(f'Public key: {public_key} Signature: {signature} is valid')
 
         for idx, input in enumerate(self.vin):
             if input['prevout']['scriptpubkey_type'] == 'p2pkh':
@@ -88,34 +163,38 @@ class Transaction:
                 # OP_DUP OP_HASH160 OP_PUSHBYTES_20 <public_key_hash> OP_EQUALVERIFY OP_CHECKSIG
                 hashed_public_key = OP_HASH160(public_key)
                 if hashed_public_key != pkh:
-                    print('Public key hash mismatch')
+                    # print('Public key hash mismatch')
                     return False
                 
                 trimmed_tx = get_trimmed_transaction_p2pkh(self.version, self.locktime, self.vin, self.vout, idx)
+                print(trimmed_tx)
                 message = hashlib.sha256(bytes.fromhex(trimmed_tx)).digest()
-                print(message.hex())
+                nn = hashlib.sha256(message).digest().hex()
+                print(nn)
                 if OP_CHECKSIG(signature, public_key, message)==False:
-                    print('Signature verification failed')
+                    # print('Signature verification failed')
                     return False
-            
-                # return True
+                
             elif input['prevout']['scriptpubkey_type'] == 'p2sh':
                 scriptsig_asm = input['scriptsig_asm'].split(' ')
                 prevout_scriptpubkey_asm = input['prevout']['scriptpubkey_asm'].split(' ')
+                redeem_script_asm = input['inner_redeemscript_asm'].split(' ')
 
                 redeem_script = scriptsig_asm[-1]
-                pkh = prevout_scriptpubkey_asm[2]
-                # print(redeem_script)
-                hashed_value = OP_HASH160(redeem_script)
-                if hashed_value != pkh:
-                    print('Public key hash mismatch')
+                sh = prevout_scriptpubkey_asm[2] # script hash
+
+                # OP_HASH160 OP_PUSHBYTES_20 <script_hash> OP_EQUAL
+                hashed_redeem_script = OP_HASH160(redeem_script)
+                if hashed_redeem_script != sh:
+                    # print('Script hash mismatch')
+                    return False
+
+                if redeem_script_asm[-1] != 'OP_CHECKMULTISIG':
+                    # No further execution needed as it is not a multisig script
                     return False
                 
-                redeem_script_asm = input['inner_redeemscript_asm'].split(' ')
-                if redeem_script_asm[-1] != 'OP_CHECKMULTISIG':
-                    # print(redeem_script_asm[-1])
-                    return True
-                
+                # OP_PUSHNUM_2 <public_key1> <public_key2> OP_PUSHNUM_2 OP_CHECKMULTISIG
+
                 public_keys = []
                 signatures = []
 
@@ -130,34 +209,37 @@ class Transaction:
                         continue
                     signatures.append(scriptsig_asm[i])
 
-                # print(public_keys)
-                # print(signatures)
-
                 trimmed_tx = get_trimmed_transaction_p2sh(self.version, self.locktime, self.vin, self.vout, idx)
                 message = hashlib.sha256(bytes.fromhex(trimmed_tx)).digest()
-                # print(trimmed_tx)
 
                 n = redeem_script_asm[0].split('_')[-1]
                 n = int(n)
-                # print(n)
 
-                for public_key in public_keys:
-                    for signature in signatures:
-                        if OP_CHECKSIG(signature, public_key, message):
-                            n -= 1
-                            # print(f'Public key: {public_key} Signature: {signature} is valid')
-                            signatures.remove(signature)
-                            public_keys.remove(public_key)
+                if OP_CHECKMULTISIG(n, signatures, public_keys, message)==False:
+                    # print('Multisig verification failed')
+                    return False
 
-                if n > 0:
-                    print(f'Signature verification failed {n} remaining txid {input["txid"]}')
-
-                    return False 
-        print(f'Transaction is valid txid {input["txid"]}')
+        total_input = 0
+        for input in self.vin:
+            total_input += input['prevout']['value']
+        total_output = 0
+        for output in self.vout:
+            total_output += output['value']
+        if total_input <= total_output:
+            # print('Insufficient funds')
+            return False
+        print(total_input, total_output)
         return True
             
 obj = Transaction(json.dumps(data))
 print(obj.validate())
+
+a = '0f3621fdd5f1349a677320e751bde19826836be99ae040029a0d83d070a4b1c9'
+b = '24a38f71b9a20ab55d19a30f47315f134524a20e471a16029d8997f1a4a83042'
+a = int(a, 16)
+b = int(b, 16)
+print(f'a is {a} and b is {b}')
+
 
 
 

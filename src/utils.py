@@ -194,12 +194,15 @@ def DOUBLE_SHA256(message):
 def get_merkle_root(txids):
     if len(txids) == 1:
         return txids[0]
-    if len(txids) % 2 != 0:
-        txids.append(txids[-1])
-    new_txids = []
+    
+    hashes = []
+
     for i in range(0, len(txids), 2):
-        new_txids.append(DOUBLE_SHA256(txids[i] + txids[i+1]))
-    return get_merkle_root(new_txids)
+        left = txids[i]
+        right = txids[i+1] if i+1 < len(txids) else left
+        hashes.append(DOUBLE_SHA256(left + right))
+    
+    return get_merkle_root(hashes)
 
 def serialise_transactions_for_wtxid(version, locktime, vin, vout):
     isSegwit = False
@@ -251,7 +254,6 @@ def calc_txids(version, locktime, vin, vout):
         txid = hex_to_little_endian(input['txid'])
         res += txid
         res += struct.pack('<I', input['vout']).hex()
-        res += struct.pack("<B", 0).hex()
         res += struct.pack("<B", ((len(input['scriptsig']))//2)).hex()
         res += bytes.fromhex(input['scriptsig']).hex()
         res += struct.pack("<I", input['sequence']).hex()
@@ -265,8 +267,8 @@ def calc_txids(version, locktime, vin, vout):
 
 
     res += struct.pack('<I', locktime).hex()
-
     txid = DOUBLE_SHA256(res)
+    # print(f'hello {txid}')
     return txid
 
 

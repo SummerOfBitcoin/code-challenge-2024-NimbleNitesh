@@ -95,5 +95,14 @@ class Transaction:
                     # print('Multisig verification failed')
                     return False
 
-        
+        # print(self.vin[0]['txid'])
+        total_input = 0
+        for input in self.vin:
+            total_input += input['prevout']['value']
+        total_output = 0
+        for output in self.vout:
+            total_output += output['value']
+        if total_input <= total_output:
+            # print('Insufficient funds')
+            return False
         return True
