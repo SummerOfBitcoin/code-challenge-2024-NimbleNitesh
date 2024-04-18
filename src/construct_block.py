@@ -69,8 +69,8 @@ def calculate_witness_commitment(transactions):
 
 
 def construct_block(transactions, block_reward=6, transaction_fee=1):
-    # coinbase_transaction = construct_coinbase_transaction(block_reward, transaction_fee, transactions)
-    # transactions.insert(0, coinbase_transaction)
+    coinbase_transaction = construct_coinbase_transaction(block_reward, transaction_fee, transactions)
+    transactions.insert(0, coinbase_transaction)
     block = assemble_blocks(transactions)
     difficulty_target = '0000ffff00000000000000000000000000000000000000000000000000000000'
 
@@ -100,8 +100,8 @@ def assemble_blocks(transactions):
     # assemble the block
     txids = calc_txids_from_transactions(transactions)
     merkle_root = get_merkle_root(txids)
-    print(txids)
-    print(merkle_root)
+    # print(txids)
+    # print(merkle_root)
     block = {
         "version": '04000000',
         "prev_block": "0000000000000000000000000000000000000000000000000000000000000000",

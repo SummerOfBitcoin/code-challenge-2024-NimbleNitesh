@@ -4,7 +4,7 @@ from transaction import Transaction
 from construct_block import construct_block
 
 
-directory = '../mempool2'
+directory = '../mempool'
 valid_transactions = []
 ans = 0
 
