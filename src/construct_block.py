@@ -56,9 +56,9 @@ def calculate_witness_commitment(transactions):
         wtxid = serialise_transactions_for_wtxid(tx.version, tx.locktime, tx.vin, tx.vout)
         wtxids.append(wtxid)
 
-    print('wtxids are -')
-    for i in wtxids:
-        print(i)
+    # print('wtxids are -')
+    # for i in wtxids:
+    #     print(i)
     # calculate the merkle root of the wtxids
     merkle_root = get_merkle_root(wtxids)
     merkle_root += '0000000000000000000000000000000000000000000000000000000000000000'
@@ -82,6 +82,7 @@ def construct_block(transactions, block_reward=6, transaction_fee=1):
 
     #generate block header
     block_header = serialise_block_header(block)
+    print(block_header)
 
     first_transaction = mined_block['transactions'][0]
     # serialise coinbase transaction
@@ -133,7 +134,7 @@ def mine_blocks(block, difficulty_target):
         block_header_attemot = hex_to_little_endian(block_header_attemot)
         block_hash = DOUBLE_SHA256(block_header_attemot)
         # block hash in int and difficulty target in int and then compare
-        if int(block_hash, 16) < int(difficulty_target, 16):
+        if int(block_hash, 16) <= int(difficulty_target, 16):
             break
         cur_nonce += 1
 
