@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pip install ripemd-hash
+pip3 install -r requirements.txt
 
 # Move to the src folder
 cd src
