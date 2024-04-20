@@ -27,7 +27,7 @@ def sort_transactions(valid_transactions):
     return valid_transactions
 
 sort_transactions(valid_transactions)
-valid_transactions = valid_transactions[:2700]
+valid_transactions = valid_transactions[:2200]
 
 # for i in range(5):
 #     print(valid_transactions[i].vin[0]['txid'])
