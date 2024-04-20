@@ -131,10 +131,10 @@ def mine_blocks(block, difficulty_target):
     while True:
         block_header_attemot = block_header + struct.pack('<I', cur_nonce).hex()
         # reverse in bytes format
+        block_header_attemot = DOUBLE_SHA256(block_header_attemot)
         block_header_attemot = hex_to_little_endian(block_header_attemot)
-        block_hash = DOUBLE_SHA256(block_header_attemot)
         # block hash in int and difficulty target in int and then compare
-        if int(block_hash, 16) <= int(difficulty_target, 16):
+        if int(block_header_attemot, 16) <= int(difficulty_target, 16):
             break
         cur_nonce += 1
 
