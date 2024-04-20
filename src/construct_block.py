@@ -29,7 +29,7 @@ def construct_coinbase_transaction(block_reward, transaction_fee, transactions):
         "scriptsig": "03233708184d696e656420627920416e74506f6f6c373946205b8160a4256c0000946e0100",
         "scriptsig_asm": "",
         "is_coinbase": True,
-        "sequence": 4294967295,
+        "sequence": 0xFFFFFFFF,
         "witness": ["0000000000000000000000000000000000000000000000000000000000000000"]
     }]
     coinbase_transaction.vout = [{

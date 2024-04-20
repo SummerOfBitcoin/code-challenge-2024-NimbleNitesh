@@ -215,11 +215,10 @@ def serialise_transactions_for_wtxid(version, locktime, vin, vout):
         txid = hex_to_little_endian(input['txid'])
         res += txid
         res += struct.pack('<I', input['vout']).hex()
-        res += struct.pack("<B", 0).hex()
         res += struct.pack("<B", ((len(input['scriptsig']))//2)).hex()
         res += bytes.fromhex(input['scriptsig']).hex()
         res += struct.pack("<I", input['sequence']).hex()
-        if input['prevout']['scriptpubkey_type'] == 'p2pkh' or input['prevout']['scriptpubkey_type'] == 'p2sh':
+        if input['prevout']['scriptpubkey_type'] == 'p2pkh' or input['prevout']['scriptpubkey_type'] == 'p2sh' or input['prevout']['scriptpubkey_type'] == '':
             # non-segwit
             witness += '00'
         else:
