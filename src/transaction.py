@@ -23,7 +23,7 @@ class Transaction:
         # checking the pubscript type
         cnt = 0
         for input in self.vin:
-            if input['prevout']['scriptpubkey_type'] != 'p2pkh':
+            if input['prevout']['scriptpubkey_type'] != 'p2pkh' and input['prevout']['scriptpubkey_type'] != 'v0_p2wpkh':
                 cnt += 1
         
         if cnt > 0:
@@ -51,6 +51,21 @@ class Transaction:
                     # print('Signature verification failed')
                     return False
                 
+            elif input['prevout']['scriptpubkey_type'] == 'v0_p2wpkh':
+                public_key = input['witness'][-1]
+                pkh = input['prevout']['scriptpubkey_asm'].split(' ')[2] # public key hash
+                hashed_public_key = OP_HASH160(public_key)
+                if hashed_public_key != pkh:
+                    # print('Public key hash mismatch')
+                    return False
+
+                trimmed_tx = get_trimmed_transaction_v0_p2wpkh(self.version, self.locktime, self.vin, self.vout, idx)
+                message = hashlib.sha256(bytes.fromhex(trimmed_tx)).digest()
+                signature = input['witness'][0]
+                if OP_CHECKSIG(signature, public_key, message) == False:
+                    # print('Signature verification failed')
+                    return False
+            
             elif input['prevout']['scriptpubkey_type'] == 'p2sh':
                 scriptsig_asm = input['scriptsig_asm'].split(' ')
                 prevout_scriptpubkey_asm = input['prevout']['scriptpubkey_asm'].split(' ')
@@ -66,7 +81,6 @@ class Transaction:
                     return False
 
                 if redeem_script_asm[-1] != 'OP_CHECKMULTISIG':
-                    # No further execution needed as it is not a multisig script
                     return False
                 
                 # OP_PUSHNUM_2 <public_key1> <public_key2> OP_PUSHNUM_2 OP_CHECKMULTISIG
@@ -94,6 +108,9 @@ class Transaction:
                 if OP_CHECKMULTISIG(n, signatures, public_keys, message)==False:
                     # print('Multisig verification failed')
                     return False
+                
+            elif input['prevout']['scriptpubkey_type'] == 'v0_p2wpkh':
+                pass
 
         # print(self.vin[0]['txid'])
         total_input = 0

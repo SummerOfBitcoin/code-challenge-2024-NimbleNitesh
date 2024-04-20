@@ -82,7 +82,7 @@ def construct_block(transactions, block_reward=6, transaction_fee=1):
 
     #generate block header
     block_header = serialise_block_header(block)
-    print(block_header)
+    # print(block_header)
 
     first_transaction = mined_block['transactions'][0]
     # serialise coinbase transaction

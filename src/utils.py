@@ -158,6 +158,44 @@ def get_trimmed_transaction_p2sh(version, locktime, vin, vout, idx):
     message += "01000000"
     return message
 
+def get_trimmed_transaction_v0_p2wpkh(version, locktime, vin, vout, idx):
+    res = ''
+    res += struct.pack('<I', version).hex()
+    hashPrevouts = ''
+    for input in vin:
+        hashPrevouts += hex_to_little_endian(input['txid'])
+        hashPrevouts += struct.pack('<I', input['vout']).hex()
+    res += DOUBLE_SHA256(hashPrevouts)
+    hashSequence = ''
+    for input in vin:
+        hashSequence += struct.pack('<I', input['sequence']).hex()
+    hashSequence = DOUBLE_SHA256(hashSequence)
+    res += hashSequence
+    # outpoint
+    res += hex_to_little_endian(vin[idx]['txid'])
+    res += struct.pack('<I', vin[idx]['vout']).hex()
+    # scriptCode
+    # And then the scriptCode, which, in P2WPKH’s case, is 1976a914 <pubkey hash> 88ac 
+    pub_key_hash = vin[idx]['prevout']['scriptpubkey_asm'].split(" ")[2]
+    scriptcode = '1976a914' + pub_key_hash + '88ac'
+    res += scriptcode
+    # value of the output spent by this input
+    res += struct.pack('<Q', vin[idx]['prevout']['value']).hex()
+    # nSequence of the input
+    res += struct.pack('<I', vin[idx]['sequence']).hex()
+    # hashOutputs
+    hashOutputs = ''
+    for output in vout:
+        hashOutputs += struct.pack('<Q', output['value']).hex()
+        hashOutputs += struct.pack("<B", ((len(output['scriptpubkey']))//2)).hex()
+        hashOutputs += output['scriptpubkey']
+    res += DOUBLE_SHA256(hashOutputs)
+    # nLocktime of the transaction
+    res += struct.pack('<I', locktime).hex()
+    # sighash type of the signature
+    res += '01000000'
+    return res
+
 # takes the signature in der format string, message in bytes and pubkey in hexa decimal string and returns True if the signature is valid using ECDSA
 def OP_CHECKSIG(signature, pubkey, message):
     vk = VerifyingKey.from_string(bytes.fromhex(pubkey), curve=SECP256k1)
