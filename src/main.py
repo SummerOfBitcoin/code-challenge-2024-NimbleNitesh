@@ -23,10 +23,11 @@ for filename in os.listdir(directory):
 print(ans)
 
 def sort_transactions(valid_transactions):
-    valid_transactions.sort(key=lambda x: x.vin[0]['txid'])
+    valid_transactions.sort(key=lambda x: str(x.vin[0]['txid']))
     return valid_transactions
 
 sort_transactions(valid_transactions)
+
 
 # for i in range(5):
 #     print(valid_transactions[i].vin[0]['txid'])

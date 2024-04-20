@@ -56,12 +56,13 @@ def calculate_witness_commitment(transactions):
         wtxid = serialise_transactions_for_wtxid(tx.version, tx.locktime, tx.vin, tx.vout)
         wtxids.append(wtxid)
 
-    # Should we sort? I am not sure.
-    # wtxids.sort()
-
+    print('wtxids are -')
+    for i in wtxids:
+        print(i)
     # calculate the merkle root of the wtxids
     merkle_root = get_merkle_root(wtxids)
     merkle_root += '0000000000000000000000000000000000000000000000000000000000000000'
+    
 
     witness_commitment = DOUBLE_SHA256(merkle_root)
     witness_commitment = '6a24aa21a9ed' + witness_commitment

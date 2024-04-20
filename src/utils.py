@@ -262,6 +262,7 @@ def serialise_transactions_for_wtxid(version, locktime, vin, vout):
     res += struct.pack('<I', locktime).hex()
 
     wtxid = DOUBLE_SHA256(res)
+    
     return wtxid
 
 def calc_txids(version, locktime, vin, vout):
