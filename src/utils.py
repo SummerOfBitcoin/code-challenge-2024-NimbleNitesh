@@ -184,31 +184,49 @@ def OP_CHECKMULTISIG(n, signatures, public_keys, message):
         return False
     return True
 
-
+# takes message in hex and return double sha in hex
 def DOUBLE_SHA256(message):
     message_bytes = bytes.fromhex(message)
     encoded_message = hashlib.sha256(hashlib.sha256(message_bytes).digest()).digest()
     return encoded_message.hex()
 
 
-def get_merkle_root(txids):
-    if len(txids) == 1:
-        return txids[0]
-    
-    hashes = []
+def hash256(message):
+    message_bytes = bytes.fromhex(message)
+    encoded_message = hashlib.sha256(hashlib.sha256(message_bytes).digest()).digest()
+    return encoded_message.hex()
 
-    for i in range(0, len(txids), 2):
-        left = txids[i]
-        right = txids[i+1] if i+1 < len(txids) else left
-        hashes.append(DOUBLE_SHA256(left + right))
-    
-    return get_merkle_root(hashes)
+
+def merkle_parent_level(hashes):
+    """takes a list of binary hashes and returns a list that's half of the length"""
+
+    if len(hashes) % 2 == 1:
+        hashes.append(hashes[-1])
+
+    parent_level = []
+
+    for i in range(0, len(hashes), 2):
+        parent = hash256(hashes[i] + hashes[i + 1])
+        parent_level.append(parent)
+    return parent_level
+
+
+def get_merkle_root(hashes):
+    """Takes a list of binary hashes and return the merkle root"""
+    current_level = hashes
+
+    while len(current_level) > 1:
+        current_level = merkle_parent_level(current_level)
+
+    return current_level[0]
+
 
 def serialise_transactions_for_wtxid(version, locktime, vin, vout):
     isSegwit = False
     res = ''
     witness = ''
     res += struct.pack('<I', version).hex()
+    
     res += int_to_varint(len(vin)).hex()
 
     for input in vin:
@@ -237,6 +255,8 @@ def serialise_transactions_for_wtxid(version, locktime, vin, vout):
         res += bytes.fromhex(output['scriptpubkey']).hex()
 
     if isSegwit:
+        # insert marker and flag after version
+        res = res[:8] + '0001' + res[8:]
         res += witness
 
     res += struct.pack('<I', locktime).hex()

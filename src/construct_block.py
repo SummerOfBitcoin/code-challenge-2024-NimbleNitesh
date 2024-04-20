@@ -57,6 +57,7 @@ def calculate_witness_commitment(transactions):
         wtxids.append(wtxid)
 
     # Should we sort? I am not sure.
+    # wtxids.sort()
 
     # calculate the merkle root of the wtxids
     merkle_root = get_merkle_root(wtxids)
